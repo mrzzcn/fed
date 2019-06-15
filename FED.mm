@@ -95,12 +95,102 @@
 		</node>
 		<node TEXT="执行过程（算法）" ID="27e16b564c9e180ff" STYLE="fork">
 		<node TEXT="事件循环" ID="22616b564febff0d" STYLE="fork">
+		<node TEXT="首先我们分析有多少个宏任务；" ID="3e316b5b7ca1760d7" STYLE="fork">
+		</node>
+		<node TEXT="在每个宏任务中，分析有多少个微任务；" ID="a216b5b7cf6ab1961" STYLE="fork">
+		</node>
+		<node TEXT="根据调用次序，确定宏任务中的微任务执行次序；" ID="11616b5b7cf6ab0fb2" STYLE="fork">
+		</node>
+		<node TEXT="根据宏任务的触发规则和调用次序，确定宏任务的执行次序；" ID="33016b5b7cf6ab0523" STYLE="fork">
+		</node>
+		<node TEXT="确定整个顺序" ID="2a316b5b7cf6ab164" STYLE="fork">
+		</node>
 		</node>
 		<node TEXT="微任务的执行" ID="17416b564ff9ef146" STYLE="fork">
 		</node>
 		<node TEXT="函数的执行" ID="31416b56503ee811" STYLE="fork">
+		<node TEXT="闭包" ID="1b916b5b89809a06f" STYLE="fork">
+		<node TEXT="闭包其实只是一个绑定了执行环境的函数，这个函数并不是印在书本里的一条简单的表达式，闭包与普通函数的区别是，它携带了执行的环境，就像人在外星中需要自带吸氧的装备一样，这个函数也带有在程序中生存的环境" ID="38c16b5b89f5cc12f" STYLE="fork">
+		</node>
+		<node TEXT="环境部分" ID="1ce16b5b8a63ec00a" STYLE="fork">
+		<node TEXT="环境：函数的词法环境（执行上下文的一部分）" ID="11316b5b8af8430ba1" STYLE="fork">
+		</node>
+		<node TEXT="标识符列表：函数中用到的未声明的变量" ID="2a916b5b8af8430dc2" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="表达式部分：函数体" ID="a816b5b8af8430333" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="函数种类" ID="3d016b5b8b123e125" STYLE="fork">
+		<node TEXT="普通函数：使用 function 关键字声明" ID="9d16b5b8fcd45041" STYLE="fork">
+		</node>
+		<node TEXT="箭头函数" ID="15716b5b90087517c" STYLE="fork">
+		<node TEXT="绑定了 this 值" ID="4016b5b935e8c094" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="类方法" ID="3316b5b903775118" STYLE="fork">
+		<node TEXT="直接调用类方法(不使用实例) 无 this" ID="1416b5b93a47d02e" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="生成器函数 function * " ID="27416b5b904f770fa" STYLE="fork">
+		</node>
+		<node TEXT="类 class 本身也是构造器函数" ID="15116b5b90894506c" STYLE="fork">
+		</node>
+		<node TEXT="异步函数：普通函数/箭头函数/生成器函数 + async 关键字" ID="1e016b5b90e7be0d3" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="this" ID="6616b5b91b2210f2" STYLE="fork">
+		<node TEXT="调用函数时使用的引用，决定了函数执行时刻的 this 值。" ID="2db16b5b92decd088" STYLE="fork">
+		</node>
+		<node TEXT="生成器函数、异步生成器函数和异步普通函数跟普通函数行为是一致的，异步箭头函数与箭头函数行为是一致的。" ID="1c516b5b92feb40c6" STYLE="fork">
+		</node>
+		<node TEXT="JavaScript 标准定义了 [[thisMode]] 私有属性。" ID="1c916b5b95c02102e" STYLE="fork">
+		<node TEXT="lexical：表示从上下文中找 this，这对应了箭头函数。" ID="c416b5b9ab1e51062" STYLE="fork">
+		</node>
+		<node TEXT="global：表示当 this 为 undefined 时，取全局对象，对应了普通函数。" ID="35f16b5b9ab1e50823" STYLE="fork">
+		</node>
+		<node TEXT="strict：当严格模式时使用，this 严格按照调用时传入的值，可能为 null 或者 undefined。" ID="16e16b5b9ab1e50d44" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="类方法的行为与普通函数有差异，因为 class 默认是严格模式" ID="1c916b5b9ab1e50da5" STYLE="fork">
+		</node>
+		<node TEXT="call/apply/bind" ID="39c16b5b9d5c4e147" STYLE="fork">
+		<node TEXT="用于改变this指向" ID="1ca16b5b9ff802062" STYLE="fork">
+		</node>
+		<node TEXT="用在箭头函数、class时不报错也不生效" ID="9e16b5ba0113b025" STYLE="fork">
+		</node>
+		</node>
+		</node>
 		</node>
 		<node TEXT="语句的执行" ID="5116b565050c005c" STYLE="fork">
+		<node TEXT="Completion Record" ID="27616b5bac9f4f0ce" STYLE="fork">
+		<node TEXT="用于描述异常、跳出等语句执行过程" ID="4316b5ba11315091" STYLE="fork">
+		</node>
+		<node TEXT="表示一个语句执行完之后的结果，它有三个字段：" ID="38016b5bac89400f41" STYLE="fork">
+		</node>
+		<node TEXT="[[type]] 表示完成的类型，有 break continue return throw 和 normal 几种类型；" ID="a616b5bac89400082" STYLE="fork">
+		</node>
+		<node TEXT="[[value]] 表示语句的返回值，如果语句没有，则是 empty；" ID="3d616b5bac894002a3" STYLE="fork">
+		</node>
+		<node TEXT="[[target]] 表示语句的目标，通常是一个 JavaScript 标签" ID="20216b5bac894003a4" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="语句类型" ID="2a016b5bad6e2f0d9" STYLE="fork">
+		</node>
+		<node TEXT="普通语句执行结束，会得到[[type]]为 normal 的 Completion Record，引擎会继续执行下一条语句" ID="33616b5baed13211f" STYLE="fork">
+		</node>
+		<node TEXT="语句块" ID="1516b5bb0095513d" STYLE="fork">
+		<node TEXT="如果语句块内部的语句的 CR 不为 normal，会打断后续语句执行" ID="16e16b5bb1ee11161" STYLE="fork">
+		</node>
+		<node TEXT="如果语句块中的某一条语句产生了一条 return CR，整个语句块的CR都是 return，从而保证非normal的CR可以穿透复杂嵌套结构产生控制效果" ID="31816b5bb365c4194" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="控制型语句" ID="21116b5bb4a99f0fc" STYLE="fork">
+		</node>
+		<node TEXT="标签语句" ID="21d16b5bb4ebaf173" STYLE="fork">
+		<node TEXT="跳出多层循环" ID="1b916b5bb6c65e0e8" STYLE="fork">
+		</node>
+		</node>
 		</node>
 		</node>
 		</node>
@@ -146,6 +236,56 @@
 		<node TEXT="表格" ID="30216b565447f607a" STYLE="fork">
 		</node>
 		<node TEXT="总集" ID="2ac16b56544f48091" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="元信息" ID="24016b5a95d6a90d4" STYLE="fork">
+		<node TEXT="head" ID="2b916b5a95e6960e1" STYLE="fork">
+		</node>
+		<node TEXT="title" ID="2a716b5a95ec16171" STYLE="fork">
+		</node>
+		<node TEXT="base" ID="3df16b5b72ae2a0d" STYLE="fork">
+		</node>
+		<node TEXT="meta" ID="18316b5b72b68a07" STYLE="fork">
+		<node TEXT="charset (head第一行，指定编码)" ID="3d716b5b731cc306d" STYLE="fork">
+		</node>
+		<node TEXT="http-equiv" ID="15c16b5b73b5440fd" STYLE="fork">
+		<node TEXT="content-type，指定Http编码方式" ID="31316b5b7419f3178" STYLE="fork">
+		</node>
+		<node TEXT="content-language 指定内容的语言；" ID="3bd16b5b74a4a80f61" STYLE="fork">
+		</node>
+		<node TEXT="default-style 指定默认样式表；" ID="1d216b5b74a4a80bf2" STYLE="fork">
+		</node>
+		<node TEXT="refresh 刷新；" ID="3c616b5b74a4a81553" STYLE="fork">
+		</node>
+		<node TEXT="set-cookie 模拟 http 头 set-cookie，设置 cookie；" ID="18516b5b74a4a80b4" STYLE="fork">
+		</node>
+		<node TEXT="x-ua-compatible 模拟 http 头 x-ua-compatible，声明 ua 兼容性；" ID="35716b5b74a4a81515" STYLE="fork">
+		</node>
+		<node TEXT="content-security-policy 模拟 http 头 content-security-policy，声明内容安全策略。" ID="11116b5b74a4a80f36" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="viewport" ID="7816b5b75063f036" STYLE="fork">
+		<node TEXT="width/height/initial-scale/minimum-scale/maximum-scale/user-scalable" ID="39916b5b753816121" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="application-name" ID="27d16b5b76283a0ab" STYLE="fork">
+		<node TEXT="用于指定 Web Application 的应用名称" ID="3e616b5b7650aa0b" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="author 页面作者" ID="23516b5b76b219025" STYLE="fork">
+		</node>
+		<node TEXT="keywords" ID="21e16b5b7773db143" STYLE="fork">
+		</node>
+		<node TEXT="description" ID="16c16b5b76d36912b" STYLE="fork">
+		</node>
+		<node TEXT="generator 生成页面所使用的工具，首页页面不需要" ID="25a16b5b76f0620be" STYLE="fork">
+		</node>
+		<node TEXT="referrer 跳转策略" ID="2bf16b5b779905046" STYLE="fork">
+		</node>
+		<node TEXT="theme-color 页面风格颜色，实际并不会影响页面，但是浏览器可能据此调整页面之外的 UI（如窗口边框或者 tab 的颜色）" ID="19c16b5b77c6dc06b" STYLE="fork">
+		</node>
+		<node TEXT="" ID="1a16b5b78231502d" STYLE="fork">
+		</node>
 		</node>
 		</node>
 		<node TEXT="语言" ID="37916b565474c803" STYLE="fork">
