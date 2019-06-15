@@ -364,13 +364,253 @@
 		</node>
 		</node>
 		<node TEXT="浏览器实现原理" ID="1916b5656ff2802c" STYLE="bubble" POSITION="left">
+		<node TEXT="过程" ID="2e916b5a3590df14b" STYLE="fork">
+		<node TEXT="DNS" ID="22116b5a362d18102" STYLE="fork">
+		</node>
+		<node TEXT="使用 HTTP 协议或者 HTTPS 协议，向服务端请求页面；" ID="30816b5a35be86039" STYLE="fork">
+		</node>
+		<node TEXT="把请求回来的 HTML 代码经过解析，构建成 DOM 树；" ID="25316b5a3619850061" STYLE="fork">
+		</node>
+		<node TEXT="计算 DOM 树上的 CSS 属性；" ID="27916b5a3619851242" STYLE="fork">
+		</node>
+		<node TEXT="最后根据 CSS 属性对元素逐个进行渲染，得到内存中的位图；" ID="1f516b5a3619850113" STYLE="fork">
+		</node>
+		<node TEXT="一个可选的步骤是对位图进行合成，这会极大地增加后续绘制的速度；" ID="17516b5a3619850b94" STYLE="fork">
+		</node>
+		<node TEXT="合成之后，再绘制到界面上" ID="d616b5a3619850325" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="HTTP" ID="5416b5a3845fd059" STYLE="fork">
+		<node TEXT="标准" ID="ba16b5a384fcb074" STYLE="fork">
+		<node TEXT="https://tools.ietf.org/html/rfc2616" ID="13116b5a386473135" STYLE="fork">
+		</node>
+		<node TEXT="https://tools.ietf.org/html/rfc7234" ID="7216b5a386824114" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="DEMO" ID="13616b5a38a70614d" STYLE="fork">
+		</node>
+		<node TEXT="Status Code" ID="19516b5a409a8d007" STYLE="fork">
+		<node TEXT="1xx：临时回应，表示客户端请继续。" ID="28616b5a41b766102" STYLE="fork">
+		</node>
+		<node TEXT="2xx：请求成功。" ID="12216b5a425ef80bc1" STYLE="fork">
+		<node TEXT="200：请求成功。" ID="2e616b5a425ef810d2" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="3xx: 表示请求的目标有变化，希望客户端进一步处理。" ID="28616b5a425ef80ef3" STYLE="fork">
+		<node TEXT="301&amp;302：永久性与临时性跳转。" ID="12b16b5a425ef81994" STYLE="fork">
+		</node>
+		<node TEXT="304：跟客户端缓存没有更新。" ID="f016b5a425ef8045" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="4xx：客户端请求错误。" ID="12016b5a425ef80866" STYLE="fork">
+		<node TEXT="403：无权限。" ID="23216b5a425ef812e7" STYLE="fork">
+		</node>
+		<node TEXT="404：表示请求的页面不存在。" ID="6e16b5a425ef80e78" STYLE="fork">
+		</node>
+		<node TEXT="418：It’s a teapot. 这是一个彩蛋，来自 ietf 的一个愚人节玩笑。（超文本咖啡壶控制协议：https://tools.ietf.org/html/rfc2324）" ID="33416b5a425ef80e49" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="5xx：服务端请求错误。" ID="1a716b5a425ef80db10" STYLE="fork">
+		<node TEXT="500：服务端错误。" ID="15b16b5a425ef813611" STYLE="fork">
+		</node>
+		<node TEXT="503：服务端暂时性错误，可以一会再试。" ID="3b616b5a425ef811712" STYLE="fork">
+		</node>
+		</node>
+		</node>
+		<node TEXT="Request Header" ID="1716b5a439c0c19" STYLE="fork">
+		<node TEXT="Accept Accept-Encoding Accept-Language" ID="d316b5a43b683149" STYLE="fork">
+		</node>
+		<node TEXT="Cache-Control" ID="2de16b5a4417fd031" STYLE="fork">
+		</node>
+		<node TEXT="Connection" ID="14816b5a44306511d" STYLE="fork">
+		</node>
+		<node TEXT="Host" ID="17516b5a4444f516e" STYLE="fork">
+		</node>
+		<node TEXT="If-Modified-Since" ID="23d16b5a44496c126" STYLE="fork">
+		</node>
+		<node TEXT="If-None-Match" ID="31716b5a4468850bd" STYLE="fork">
+		</node>
+		<node TEXT="User-Agent" ID="24816b5a447f950f5" STYLE="fork">
+		</node>
+		<node TEXT="Cookie" ID="2a316b5a448a150ae" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="Response Header" ID="1c416b5a44962c094" STYLE="fork">
+		<node TEXT="Cache-Control" ID="2f16b5a44aaac155" STYLE="fork">
+		</node>
+		<node TEXT="Connection" ID="24616b5a44e1e512a" STYLE="fork">
+		</node>
+		<node TEXT="Content-Encoding" ID="11c16b5a44efae01d" STYLE="fork">
+		</node>
+		<node TEXT="Content-Length" ID="a516b5a4510b6196" STYLE="fork">
+		</node>
+		<node TEXT="Content-Type" ID="30016b5a4520c6031" STYLE="fork">
+		</node>
+		<node TEXT="Date" ID="12816b5a453336042" STYLE="fork">
+		</node>
+		<node TEXT="ETag" ID="16c16b5a453cd503a" STYLE="fork">
+		</node>
+		<node TEXT="Expires" ID="19e16b5a454576162" STYLE="fork">
+		</node>
+		<node TEXT="Keep-Alive" ID="23e16b5a45509e18d" STYLE="fork">
+		</node>
+		<node TEXT="Last-Modified" ID="28416b5a4562c610d" STYLE="fork">
+		</node>
+		<node TEXT="Server" ID="23b16b5a456e8e00c" STYLE="fork">
+		</node>
+		<node TEXT="Set-Coookie" ID="31416b5a45741e123" STYLE="fork">
+		</node>
+		<node TEXT="Via" ID="2cd16b5a4583e606a" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="Request Body" ID="3b416b5a4609aa0aa" STYLE="fork">
+		<node TEXT="application/json" ID="8316b5a461ef0008" STYLE="fork">
+		</node>
+		<node TEXT="application/x-www-form-urlencoded" ID="8c16b5a46a21904c1" STYLE="fork">
+		</node>
+		<node TEXT="multipart/form-data" ID="fd16b5a46a219062" STYLE="fork">
+		</node>
+		<node TEXT="text/xml" ID="38716b5a46a2190f3" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="HTTPS" ID="23016b5a46e5f200a" STYLE="fork">
+		<node TEXT="https://tools.ietf.org/html/rfc2818" ID="3cd16b5a47033a15b" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="HTTP 2" ID="23616b5a47ee5c139" STYLE="fork">
+		<node TEXT="https://tools.ietf.org/html/rfc7540" ID="30d16b5a47fb4b0a2" STYLE="fork">
+		</node>
+		<node TEXT="服务端推送" ID="35c16b5a483bed09" STYLE="fork">
+		<node TEXT="在客户端发送第一个请求到服务端时，提前把一部分内容推送给客户端，放入缓存当中，这可以避免客户端请求顺序带来的并行度不高，从而导致的性能问题" ID="29d16b5a489e3707" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="TCP连接复用" ID="36616b5a4852dc084" STYLE="fork">
+		<node TEXT="则使用同一个 TCP 连接来传输多个 HTTP 请求，避免了 TCP 连接建立时的三次握手开销，和初建 TCP 连接时传输窗口小的问题" ID="1ad16b5a48d786017" STYLE="fork">
+		</node>
+		</node>
+		</node>
+		</node>
 		<node TEXT="解析" ID="28a16b5657281f04c" STYLE="fork">
+		<node TEXT="token, 也叫词" ID="2016b5a4a5e6211f" STYLE="fork">
+		</node>
+		<node TEXT="使用状态机把HTTP字符流解析成为一组 tokens" ID="2a316b5a4bd37413b" STYLE="fork">
+		<node TEXT="https://html.spec.whatwg.org/multipage/parsing.html#tokenization" ID="26016b5a4ca34e126" STYLE="fork">
+		</node>
+		<node TEXT="官方文档规定了 80 个状态（HTML 是唯一一个标准中规定了状态机实现的语言，对大部分语言来说，状态机是一种实现而非定义）" ID="3f16b5a4e287b083" STYLE="fork">
+		</node>
+		</node>
 		</node>
 		<node TEXT="构建DOM树" ID="26516b56573605138" STYLE="fork">
+		<node TEXT="tokens => DOM" ID="d316b5a553d9f16b" STYLE="fork">
+		</node>
+		<node TEXT="使用栈" ID="31416b5a5725ea08" STYLE="fork">
+		<node TEXT="栈顶元素就是当前节点；" ID="34216b5a57a471021" STYLE="fork">
+		</node>
+		<node TEXT="遇到属性，就添加到当前节点；" ID="1ab16b5a57a69e1441" STYLE="fork">
+		</node>
+		<node TEXT="遇到文本节点，如果当前节点是文本节点，则跟文本节点合并，否则入栈成为当前节点的子节点；" ID="3ad16b5a57a69e192" STYLE="fork">
+		</node>
+		<node TEXT="遇到注释节点，作为当前节点的子节点；" ID="8e16b5a57a69e0333" STYLE="fork">
+		</node>
+		<node TEXT="遇到 tag start 就入栈一个节点，当前节点就是这个节点的父节点；" ID="15316b5a57a69e0af4" STYLE="fork">
+		</node>
+		<node TEXT="遇到 tag end 就出栈一个节点（还可以检查是否匹配）。" ID="13516b5a57a69e1975" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="XHTML 比较严谨，没有问题" ID="24b16b5a58836d05" STYLE="fork">
+		</node>
+		<node TEXT="而 HTML 具有很强的容错能力，当 tag end 跟栈顶的 start tag 不匹配的时候需要特殊处理" ID="3e016b5a57bb62093" STYLE="fork">
+		<node TEXT="W3C 把全部规则都整理好了，只要翻译成对应的代码就好了" ID="3f16b5a58f0dc0f1" STYLE="fork">
+		</node>
+		<node TEXT="http://www.w3.org/html/wg/drafts/html/master/syntax.html#tree-construction" ID="18516b5a598e3f1181" STYLE="fork">
+		</node>
+		</node>
 		</node>
 		<node TEXT="计算CSS" ID="37616b5657552d018" STYLE="fork">
+		<node TEXT="选择器，本质是“匹配器”" ID="2016b5a6168dd18c" STYLE="fork">
+		</node>
+		<node TEXT="在节点构造过程中，形成一个节点之后，立即匹配相应的规则" ID="1d416b5a61b8960ce" STYLE="fork">
+		</node>
+		<node TEXT="CSS 设计的原则：选择器的出现顺序，必定跟构建 DOM 树的顺序一致。保证选择器在 DOM 树构建到当前节点时，已经可以准确判断是否匹配，不需要后续节点信息" ID="2cc16b5a6230d7073" STYLE="fork">
+		</node>
+		<node TEXT="未来也不太可能会出现“父元素选择器”这种东西，因为父元素选择器要求根据当前节点的子节点，来判断当前节点是否被选中，而父节点会先于子节点构建" ID="1dd16b5a631fe9162" STYLE="fork">
+		</node>
 		</node>
 		<node TEXT="渲染、合成与绘制" ID="25316b56576535039" STYLE="fork">
+		<node TEXT="给DOM树上的各元素添加了CSS之后，开始渲染" ID="1b716b5a67d5c116d" STYLE="fork">
+		</node>
+		<node TEXT="排版" ID="2ae16b5a69216c193" STYLE="fork">
+		<node TEXT="浏览器确定文字、图片、图形、表格等元素的的过程" ID="22f16b5a6b51d60dc" STYLE="fork">
+		</node>
+		<node TEXT="正常流" ID="2616b5a6c463f135" STYLE="fork">
+		<node TEXT="顺次排布，折行" ID="23d16b5a6c74800b4" STYLE="fork">
+		</node>
+		<node TEXT="不同语言的书写顺序，浏览器支持双向文字系统" ID="dc16b5a6d2c820f4" STYLE="fork">
+		</node>
+		<node TEXT="盒子模型" ID="30f16b5a6dadaa161" STYLE="fork">
+		</node>
+		<node TEXT="inline 元素主轴方向的 margin 和 border 属性会被计算进排版的前进距离" ID="2de16b5a71bf1500d" STYLE="fork">
+		</node>
+		<node TEXT="其他行内盒元素和伪元素，以盒的形式跟文字一起排版" ID="3d816b5a72d98d0e9" STYLE="fork">
+		</node>
+		<node TEXT="先行内布局，再确定行的位置，再根据行的位置计算出行内盒和文字的排版位置" ID="39716b5a73daa715" STYLE="fork">
+		</node>
+		<node TEXT="块级盒总是单独占据一行" ID="30616b5a74e79b066" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="绝对定位" ID="2b316b5a6e255308a" STYLE="fork">
+		<node TEXT="把自身从正常流抽出，直接由 top 和 left 等属性确定自身的位置，不参加排版计算，也不影响其它元素" ID="2cd16b5a6ed3170f" STYLE="fork">
+		</node>
+		<node TEXT="根据它的包含块来确定位置，完全跟正常流无关，逐层找到其父级的 position 非 static 元素即可" ID="9f16b5a76321d155" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="浮动" ID="5e16b5a6cb6b000c" STYLE="fork">
+		<node TEXT="使自己在正常流的位置向左或者向右移动到边界，并且占据一块排版空间" ID="38f16b5a6e5cef10c" STYLE="fork">
+		</node>
+		<node TEXT="先排入正常流，再移动到排版宽度的最左 / 最右（这里实际上是主轴的最前和最后）" ID="a16b5a77535e149" STYLE="fork">
+		</node>
+		<node TEXT="移动之后，主轴方向的排版距离发生了变化，直到交叉轴方向的尺寸超过了浮动元素的交叉轴尺寸范围，主轴排版尺寸恢复" ID="d416b5a7c7d7f0a3" STYLE="fork">
+		</node>
+		<node TEXT="float 元素排布完成后，float 元素所在的行需要重新确定位置" ID="31216b5a7cb2170ec1" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="Flex" ID="2416b5a6fdd3006" STYLE="fork">
+		</node>
+		<node TEXT="Grid" ID="26216b5a6f982d10a" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="渲染" ID="2b916b5a7e772e082" STYLE="fork">
+		<node TEXT="中文里“渲染”是指一种绘画技法：沾清水把墨涂开的意思" ID="3b416b5a7ea9c6187" STYLE="fork">
+		</node>
+		<node TEXT="浏览器渲染过程较为复杂，主要包含图形和文字" ID="23f16b5a7f21750a" STYLE="fork">
+		</node>
+		<node TEXT="背景、边框、图片、阴影等需要绘制图形，一般浏览器会使用中间层隔离操作系统底层库" ID="d316b5a8134a1032" STYLE="fork">
+		</node>
+		<node TEXT="文字需要指题库支持" ID="2d516b5a87a0501" STYLE="fork">
+		</node>
+		<node TEXT="一般渲染位图和之前的排版尺寸相同，但也有例外，比如阴影，渲染结果可能比原始尺寸大许多倍，浏览器一般会把阴影作为独立盒处理" ID="3a916b5a8873e8033" STYLE="fork">
+		</node>
+		<node TEXT="渲染的位图不包括子元素" ID="28a16b5a8a1c0101" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="合成" ID="33916b5a89b68811b" STYLE="fork">
+		<node TEXT="compositing，这个过程实际上是一个性能考量，并非实现浏览器的必要步骤" ID="29916b5a8a666414b" STYLE="fork">
+		</node>
+		<node TEXT="合成策略：最大限度减少绘制次数" ID="13316b5a8b44a8041" STYLE="fork">
+		</node>
+		<node TEXT="目前，主流浏览器一般根据 position、transform 等属性来决定合成策略，来“猜测”这些元素未来可能发生变化" ID="2c916b5a8c028715e" STYLE="fork">
+		</node>
+		<node TEXT="新的 CSS 标准规定了 will-change 属性，业务代码告诉浏览器合成策略" ID="9e16b5a8cfec00b4" STYLE="fork">
+		</node>
+		</node>
+		<node TEXT="绘制" ID="10a16b5a8dbde80ea" STYLE="fork">
+		<node TEXT="位图=>最终位图" ID="13816b5a8dcaeb0c1" STYLE="fork">
+		</node>
+		<node TEXT="CSS性能优化不能单纯追求减少“重排”和“重绘”，举例：鼠标划过" ID="26f16b5a8f10f60f1" STYLE="fork">
+		</node>
+		<node TEXT="“脏矩形”算法，重新处理某几个矩形范围有交集的合成层即可" ID="1e116b5a9062d2078" STYLE="fork">
+		</node>
+		</node>
 		</node>
 		</node>
 		<node TEXT="API" ID="d116b56571dd60ea" STYLE="bubble" POSITION="left">
